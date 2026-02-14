@@ -1,168 +1,183 @@
-#AI Mock Interview System
-Overview
+# AI Mock Interview System
 
-The AI Mock Interview System is a web-based application that simulates a real technical interview environment.
+An AI-powered web application that simulates a real technical interview environment with automated evaluation, speech recognition, resume matching, and AI-based proctoring.
+
+---
+
+## 📌 Project Overview
+
+The AI Mock Interview System is a full-stack web application designed to simulate structured technical interviews.
 
 The system evaluates candidates using:
 
-Real-time speech recognition
+- 🎤 Real-time Speech Recognition
+- 📄 Resume-to-Job Description Matching
+- 👁 AI-Based Face Tracking & Focus Monitoring
+- 📊 Automated Performance Scoring & Report Generation
 
-Resume-to-job-description matching
+It combines **Natural Language Processing (NLP)** and **Computer Vision** to create a structured, intelligent, and data-driven interview experience.
 
-AI-based face tracking and proctoring
+---
 
-Automated performance scoring and report generation
-
-It combines Natural Language Processing (NLP) and Computer Vision to create a structured, AI-driven interview experience.
-
-Objective
+## 🎯 Objective
 
 The goal of this project is to:
 
-Simulate structured technical interview scenarios
+- Simulate structured technical interview scenarios
+- Analyze candidate responses using NLP techniques
+- Monitor candidate focus using computer vision
+- Generate automated, weighted performance reports
 
-Analyze candidate responses using NLP
+---
 
-Monitor candidate focus using computer vision
+## 🏗 System Architecture
 
-Generate automated, data-driven performance reports
+The system is divided into five core components:
 
-Approach
+### 1️⃣ Frontend
+- HTML
+- CSS (Grid, Flexbox)
+- JavaScript
+- Web Speech API
 
-The system follows a modular architecture consisting of four major layers:
+### 2️⃣ Backend
+- Flask (Python)
+- REST APIs
+- Session Management
 
-1️⃣ User Interface Layer
+### 3️⃣ NLP Processing
+- Text Cleaning
+- TF-IDF Vectorization
+- Cosine Similarity
+- Keyword-Based Answer Scoring
 
-Handles:
+### 4️⃣ Proctoring Module
+- MediaPipe Face Mesh
+- Real-time Webcam Capture
+- Focus Direction Detection (Left / Right / Down)
+- Violation Counter Tracking
 
-Candidate profile setup
+### 5️⃣ Storage
+- Session-based Data Storage
+- File Upload Handling (Resume & JD)
 
-Interview interface
+---
 
-Live transcript display
+## ⚙️ Development Methodology
 
-Performance report visualization
+The system follows a structured implementation pipeline:
 
-2️⃣ Speech Processing Layer
+1. User uploads Resume and Job Description
+2. Interview questions are simulated
+3. Speech is captured and transcribed in real-time
+4. Face focus is monitored using MediaPipe
+5. NLP algorithms evaluate responses
+6. Final weighted performance score is generated
 
-Uses Web Speech API for real-time transcription
+---
 
-Captures continuous speech input
+## 🧠 Implementation Details
 
-Maintains full interview transcript
+### 🎤 Speech Recognition
 
-Sends data to backend via Fetch API
+- Used Web Speech API
+- Continuous transcription enabled
+- Captured full interview transcript
+- Stored transcript in session
+- Sent final answer to backend using Fetch API
 
-3️⃣ NLP & Scoring Engine
+Example:
 
-Cleans text input
+```javascript
+recognition.continuous = true;
+recognition.interimResults = true;
+recognition.start();
+```
 
-Converts resume & JD into TF-IDF vectors
+---
 
-Calculates similarity using Cosine Similarity
+### 📄 Resume Matching (NLP Module)
 
-Evaluates answer quality based on keyword relevance
+Steps:
 
-Computes final performance score
+- Cleaned resume and job description text
+- Converted text into TF-IDF vectors
+- Measured similarity using Cosine Similarity
 
-4️⃣ AI Proctoring Engine
+Mathematically:
 
-Uses MediaPipe Face Mesh
+Similarity = cosine(angle between resume vector and job description vector)
 
-Tracks face direction (Left / Right / Down)
+This transforms textual similarity into a measurable numerical score.
 
-Increments violation counter
+---
 
-Impacts integrity score
+### 📊 Scoring Logic
 
-Features Implemented
+Final Score is calculated using weighted evaluation:
 
-User profile setup (Name, Role, Resume Upload, JD Upload)
-
-Real-time speech-to-text transcription
-
-Continuous interview recording
-
-Resume & Job Description similarity scoring
-
-AI-based face detection and tracking
-
-Focus violation monitoring
-
-Integrity scoring system
-
-Automated final score calculation
-
-Structured performance report dashboard
-
-Scoring Logic
-
-Final Score =
-(Answer Quality × 0.4) +
-(Confidence × 0.3) +
+Final Score =  
+(Answer Quality × 0.4) +  
+(Confidence × 0.3) +  
 (Integrity × 0.3)
 
-Metrics Explained:
+Where:
 
-Answer Quality
-→ Based on keyword relevance and structure.
+- Answer Quality → Keyword relevance
+- Confidence → Speech length & pause penalty
+- Integrity → Focus violations detected
 
-Confidence
-→ Based on speech length and pauses.
+---
 
-Integrity
-→ Based on focus violations during interview.
+### 👁 Proctoring System
 
-Technologies Used
-Frontend
+- Real-time webcam capture
+- Face detection using MediaPipe
+- Focus tracking (Left / Right / Down)
+- Violation counter increments automatically
+- Integrity score decreases based on violations
 
-HTML
+---
 
-CSS (Flexbox, Grid)
+## ✨ Features Implemented
 
-JavaScript
+- Multi-question interview simulation
+- Real-time speech-to-text transcription
+- Resume & JD similarity scoring
+- AI-based proctoring system
+- Automated weighted performance report
+- Clean UI with structured dashboard
+- Session-based data handling
 
-Web Speech API
+---
 
-Backend
+## 🛠 Technologies Used
 
-Python
+### Frontend
+- HTML
+- CSS
+- JavaScript
+- Web Speech API
 
-Flask
+### Backend
+- Flask
+- Python
 
-REST APIs
+### AI / ML
+- TF-IDF Vectorizer
+- Cosine Similarity
+- MediaPipe Face Mesh
+- OpenCV (Browser Webcam)
 
-Session Management
+---
 
-NLP / Data Science
+## 📂 Project Structure
 
-TF-IDF Vectorizer (scikit-learn)
-
-Cosine Similarity
-
-Text Preprocessing
-
-Computer Vision
-
-MediaPipe Face Mesh
-
-Webcam integration via browser
-
-System Architecture
-
-User → Frontend Interface →
-Speech Recognition + Webcam →
-Flask Backend →
-NLP Processing + Proctoring Logic →
-Score Calculation →
-Performance Report
-
-Project Structure:
+```
 AI-Mock-Interview-System/
 │
 ├── app.py
-├── uploads/
-│
+├── requirements.txt
 ├── templates/
 │   ├── setup.html
 │   ├── interview.html
@@ -171,48 +186,62 @@ AI-Mock-Interview-System/
 ├── static/
 │   ├── style.css
 │   ├── video_proctoring.js
-│   └── ai_assistant.png
+│   └── images/
 │
-└── README.md
+└── uploads/
+```
 
-Components Included
+---
 
-Speech recognition module
+## ▶️ Installation
 
-Resume similarity module
+1. Clone the repository:
 
-Scoring algorithm module
+```
+git clone https://github.com/your-username/AI-Mock-Interview-System.git
+```
 
-Proctoring detection module
+2. Install dependencies:
 
-Flask backend routing
+```
+pip install -r requirements.txt
+```
 
-UI layout and styling
+3. Run the application:
 
-Performance analytics report
+```
+python app.py
+```
 
-Future Enhancements
+4. Open in browser:
 
-Integration with advanced LLMs for semantic answer evaluation
+```
+http://127.0.0.1:5000
+```
 
-Database integration (PostgreSQL / MongoDB)
+---
 
-Multi-question dynamic interview sets
+## 📸 Screenshots
 
-Cloud deployment (AWS / Render)
+### Interview Interface
+(Add screenshot here)
 
-Admin analytics dashboard
+### Performance Report
+(Add screenshot here)
 
-Conclusion
+---
 
-This project demonstrates the integration of:
+## 🔮 Future Improvements
 
-Web development
+- LLM-based semantic answer evaluation
+- Emotion detection module
+- Database integration
+- Multi-user support
+- Cloud deployment
 
-Natural Language Processing
+---
 
-Machine Learning similarity metrics
+## 👩‍💻 Author
 
-Real-time computer vision monitoring
-
-Automated scoring systems
+Developed by Kareena Rohra  
+B.Sc. Data Science Student  
