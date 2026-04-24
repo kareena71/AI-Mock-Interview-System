@@ -1,247 +1,75 @@
-# AI Mock Interview System
+# 🤖 AI Mock Interview Coach
 
-An AI-powered web application that simulates a real technical interview environment with automated evaluation, speech recognition, resume matching, and AI-based proctoring.
-
----
-
-## 📌 Project Overview
-
-The AI Mock Interview System is a full-stack web application designed to simulate structured technical interviews.
-
-The system evaluates candidates using:
-
-- 🎤 Real-time Speech Recognition
-- 📄 Resume-to-Job Description Matching
-- 👁 AI-Based Face Tracking & Focus Monitoring
-- 📊 Automated Performance Scoring & Report Generation
-
-It combines **Natural Language Processing (NLP)** and **Computer Vision** to create a structured, intelligent, and data-driven interview experience.
+An AI-powered system that simulates real interview environments, evaluates responses, and provides performance insights using NLP and computer vision.
 
 ---
 
-## 🎯 Objective
+## 🚀 Features
 
-The goal of this project is to:
-
-- Simulate structured technical interview scenarios
-- Analyze candidate responses using NLP techniques
-- Monitor candidate focus using computer vision
-- Generate automated, weighted performance reports
-
----
-
-## 🏗 System Architecture
-
-The system is divided into five core components:
-
-### 1️⃣ Frontend
-- HTML
-- CSS (Grid, Flexbox)
-- JavaScript
-- Web Speech API
-
-### 2️⃣ Backend
-- Flask (Python)
-- REST APIs
-- Session Management
-
-### 3️⃣ NLP Processing
-- Text Cleaning
-- TF-IDF Vectorization
-- Cosine Similarity
-- Keyword-Based Answer Scoring
-
-### 4️⃣ Proctoring Module
-- MediaPipe Face Mesh
-- Real-time Webcam Capture
-- Focus Direction Detection (Left / Right / Down)
-- Violation Counter Tracking
-
-### 5️⃣ Storage
-- Session-based Data Storage
-- File Upload Handling (Resume & JD)
+* 🎤 Real-time speech recognition using Web Speech API
+* 🧠 AI-based answer evaluation using TF-IDF & cosine similarity
+* 👁️ Face tracking & integrity monitoring using MediaPipe
+* 📊 Performance scoring based on answer quality, confidence & integrity
+* 🌐 Flask-based backend with interactive frontend
 
 ---
 
-## ⚙️ Development Methodology
+## 🏗️ System Architecture
 
-The system follows a structured implementation pipeline:
+The system consists of 5 major components:
 
-1. User uploads Resume and Job Description
-2. Interview questions are simulated
-3. Speech is captured and transcribed in real-time
-4. Face focus is monitored using MediaPipe
-5. NLP algorithms evaluate responses
-6. Final weighted performance score is generated
-
----
-
-## 🧠 Implementation Details
-
-### 🎤 Speech Recognition
-
-- Used Web Speech API
-- Continuous transcription enabled
-- Captured full interview transcript
-- Stored transcript in session
-- Sent final answer to backend using Fetch API
-
-Example:
-
-```javascript
-recognition.continuous = true;
-recognition.interimResults = true;
-recognition.start();
-```
+* **Client Interface**: HTML, CSS, JavaScript
+* **Backend Server**: Flask (Python)
+* **NLP Engine**: TF-IDF + Cosine Similarity
+* **Proctoring Module**: MediaPipe Face Tracking
+* **Data Layer**: Session & file handling
 
 ---
 
-### 📄 Resume Matching (NLP Module)
+## ⚙️ How It Works
 
-Steps:
-
-- Cleaned resume and job description text
-- Converted text into TF-IDF vectors
-- Measured similarity using Cosine Similarity
-
-Mathematically:
-
-Similarity = cosine(angle between resume vector and job description vector)
-
-This transforms textual similarity into a measurable numerical score.
+1. User uploads resume & job description
+2. System generates interview questions
+3. User answers via speech
+4. Speech is converted to text
+5. NLP evaluates answer relevance
+6. Face tracking monitors focus
+7. Final score is generated
 
 ---
 
-### 📊 Scoring Logic
+## 📊 Scoring Logic
 
-Final Score is calculated using weighted evaluation:
-
-Final Score =  
-(Answer Quality × 0.4) +  
-(Confidence × 0.3) +  
-(Integrity × 0.3)
-
-Where:
-
-- Answer Quality → Keyword relevance
-- Confidence → Speech length & pause penalty
-- Integrity → Focus violations detected
+* **Answer Quality** → Keyword relevance (TF-IDF)
+* **Confidence** → Speech length & pauses
+* **Integrity** → Face tracking violations
 
 ---
 
-### 👁 Proctoring System
+## 🖼️ Screenshots
 
-- Real-time webcam capture
-- Face detection using MediaPipe
-- Focus tracking (Left / Right / Down)
-- Violation counter increments automatically
-- Integrity score decreases based on violations
+(Add your screenshots here)
 
 ---
 
-## ✨ Features Implemented
+## 🛠️ Tech Stack
 
-- Multi-question interview simulation
-- Real-time speech-to-text transcription
-- Resume & JD similarity scoring
-- AI-based proctoring system
-- Automated weighted performance report
-- Clean UI with structured dashboard
-- Session-based data handling
+* Python (Flask)
+* HTML, CSS, JavaScript
+* Scikit-learn (TF-IDF)
+* MediaPipe
+* Web Speech API
 
 ---
 
-## 🛠 Technologies Used
+## 📌 Future Improvements
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
-- Web Speech API
-
-### Backend
-- Flask
-- Python
-
-### AI / ML
-- TF-IDF Vectorizer
-- Cosine Similarity
-- MediaPipe Face Mesh
-- OpenCV (Browser Webcam)
-
----
-
-## 📂 Project Structure
-
-```
-AI-Mock-Interview-System/
-│
-├── app.py
-├── requirements.txt
-├── templates/
-│   ├── setup.html
-│   ├── interview.html
-│   └── result.html
-│
-├── static/
-│   ├── style.css
-│   ├── video_proctoring.js
-│   └── images/
-│
-└── uploads/
-```
-
----
-
-## ▶️ Installation
-
-1. Clone the repository:
-
-```
-git clone https://github.com/your-username/AI-Mock-Interview-System.git
-```
-
-2. Install dependencies:
-
-```
-pip install -r requirements.txt
-```
-
-3. Run the application:
-
-```
-python app.py
-```
-
-4. Open in browser:
-
-```
-http://127.0.0.1:5000
-```
-
----
-
-## 📸 Screenshots
-
-### Interview Interface
-(Add screenshot here)
-
-### Performance Report
-(Add screenshot here)
-
----
-
-## 🔮 Future Improvements
-
-- LLM-based semantic answer evaluation
-- Emotion detection module
-- Database integration
-- Multi-user support
-- Cloud deployment
+* Deep learning-based NLP models
+* Voice emotion analysis
+* Resume-job matching enhancement
 
 ---
 
 ## 👩‍💻 Author
 
-Developed by Kareena Rohra  
-B.Sc. Data Science Student  
+Kareena Rohra
